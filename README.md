@@ -54,3 +54,48 @@ Further improvements include adopting deeper CNN architectures (e.g., ResNet), h
 - pip install scikit-learn
 - pip install joblib
 
+
+🏋‍♂ Instructions to Train and Validate the Models
+This project includes both Scikit-learn-based classical models and a PyTorch-based CNN. Below are the step-by-step instructions for running each model.
+
+🔷 1. Classical Models (Scikit-learn)
+Each model is implemented in a Jupyter Notebook. To train and validate them:
+
+✅ Example: Random Forest
+Open Random_Forest.ipynb in Jupyter or VS Code.
+
+Run each cell in sequence:
+Loads and splits the dataset.
+Trains the Random Forest using GridSearchCV.
+Evaluates on validation data using accuracy, precision, recall, F1-score.
+The confusion matrix is displayed at the end.
+
+Notebooks for Other Models:
+Decision_tree_Supervised.ipynb
+XG_Boosting.ipynb
+Semi_DT.ipynb
+
+🔷 2. CNN (PyTorch)
+Files: Final_CNN.ipynb, cnn1.ipynb, best_model.pkl
+✅ To Train the CNN:
+Open Final_CNN.ipynb.
+
+Make sure you have the Training/museum-indoor and Training/museum-outdoor folders as specified.
+Run all cells:
+Automatically performs train/val split
+Trains CNN with different learning rates and epoch counts
+Selects best model based on validation accuracy
+Saves final model as best_model.pkl.
+
+📦 Dependencies:
+bash
+pip install torch torchvision scikit-learn matplotlib seaborn
+📈 To Validate the CNN on Test Data:
+Open and run evaluate.py:
+
+bash
+python evaluate.py
+This loads best_model.pkl, runs prediction on Museum_Validation/museum-indoor and museum-outdoor, and prints:
+
+Accuracy, Precision, Recall, F1-score
+Confusion matrix
