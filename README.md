@@ -43,14 +43,14 @@ Each image was resized, normalized, and used across training, validation, and te
 Further improvements include adopting deeper CNN architectures (e.g., ResNet), hybrid approaches combining CNNs with ensemble classifiers, and refining pseudo-labeling in semi-supervised learning.
 
 ###Requirements to run your Python code (libraries, etc)
-pip install numpy
-pip install pandas
-pip install matplotlib
-pip install seaborn
-pip install opencv-python
-pip install pillow
-pip install torch
-pip install torchvision
-pip install scikit-learn
-pip install joblib
+- pip install numpy
+- pip install pandas
+- pip install matplotlib
+- pip install seaborn
+- pip install opencv-python
+- pip install pillow
+- pip install torch
+- pip install torchvision
+- pip install scikit-learn
+- pip install joblib
 
