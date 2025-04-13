@@ -42,7 +42,7 @@ Each image was resized, normalized, and used across training, validation, and te
 ### Future Work
 Further improvements include adopting deeper CNN architectures (e.g., ResNet), hybrid approaches combining CNNs with ensemble classifiers, and refining pseudo-labeling in semi-supervised learning.
 
-###Requirements to run your Python code (libraries, etc)
+### Requirements to run your Python code (libraries, etc)
 - pip install numpy
 - pip install pandas
 - pip install matplotlib
@@ -55,13 +55,13 @@ Further improvements include adopting deeper CNN architectures (e.g., ResNet), h
 - pip install joblib
 
 
-🏋‍♂ Instructions to Train and Validate the Models
+### Instructions to Train and Validate the Models
 This project includes both Scikit-learn-based classical models and a PyTorch-based CNN. Below are the step-by-step instructions for running each model.
 
-🔷 1. Classical Models (Scikit-learn)
+Classical Models (Scikit-learn)
 Each model is implemented in a Jupyter Notebook. To train and validate them:
 
-✅ Example: Random Forest
+Example: Random Forest
 Open Random_Forest.ipynb in Jupyter or VS Code.
 
 Run each cell in sequence:
@@ -75,9 +75,9 @@ Decision_tree_Supervised.ipynb
 XG_Boosting.ipynb
 Semi_DT.ipynb
 
-🔷 2. CNN (PyTorch)
+2. CNN (PyTorch)
 Files: Final_CNN.ipynb, cnn1.ipynb, best_model.pkl
-✅ To Train the CNN:
+To Train the CNN:
 Open Final_CNN.ipynb.
 
 Make sure you have the Training/museum-indoor and Training/museum-outdoor folders as specified.
@@ -87,13 +87,11 @@ Trains CNN with different learning rates and epoch counts
 Selects best model based on validation accuracy
 Saves final model as best_model.pkl.
 
-📦 Dependencies:
-bash
+Dependencies:
 pip install torch torchvision scikit-learn matplotlib seaborn
 📈 To Validate the CNN on Test Data:
 Open and run evaluate.py:
 
-bash
 python evaluate.py
 This loads best_model.pkl, runs prediction on Museum_Validation/museum-indoor and museum-outdoor, and prints:
 
@@ -101,83 +99,59 @@ Accuracy, Precision, Recall, F1-score
 Confusion matrix
 
 
-🏋 Instructions to Train and Validate Your Models (CNN - PyTorch)
+###  Instructions to Train and Validate Your Models (CNN - PyTorch)
 To train the CNN model from scratch and validate on your dataset:
 
-✅ Requirements
+Requirements
 Make sure the following Python packages are installed:
-
-bash
-Copy
-Edit
 pip install torch torchvision scikit-learn numpy matplotlib seaborn pillow
-✅ Folder Structure
+Folder Structure
 Ensure the training dataset is organized like:
 
-Copy
-Edit
 /Training
 ├── museum-indoor/
 └── museum-outdoor/
-✅ Training Instructions
+
+Training Instructions
 Open Final_CNN.ipynb using Jupyter Notebook or VS Code.
 
 Run all cells sequentially:
-
 Loads and labels images from both folders.
-
 Splits into training and validation sets (80/20).
 
 Trains a CNN using multiple hyperparameter combinations:
-
 Learning rates: 0.01, 0.001, 0.0001
-
 Epochs: 2 for tuning, 10 for final training
-
 Prints accuracy per epoch and selects best model.
-
 Saves best model to: best_model.pkl
 
-🧪 Instructions to Run Pre-trained CNN on Test Data
+### Instructions to Run Pre-trained CNN on Test Data
 You can evaluate the saved model (best_model.pkl) on new test images.
 
-✅ Folder Structure
+Folder Structure
 Ensure the test dataset is placed in:
 
-Copy
-Edit
 /Museum_Validation
 ├── museum-indoor/
 └── museum-outdoor/
-✅ Running Evaluation
+Running Evaluation
 Run the evaluate.py script (you can create one based on your notebook logic):
-
-bash
-Copy
-Edit
 python evaluate.py
-It will:
 
+It will:
 Load best_model.pkl
 
 Predict on all test images from both folders
 
 Print:
-
 Accuracy
-
 Precision
-
 Recall
-
 F1-score
-
 Confusion Matrix (visualized with Seaborn)
 
-📌 Example Output:
+Example Output:
 makefile
-Copy
-Edit
 Accuracy: 0.9300
 Precision: 0.9302
 Recall: 0.9300
@@ -185,10 +159,10 @@ F1-score: 0.9300
 Plus a confusion matrix plot will be displayed.
 
 
-Source Code Package (Scikit-learn & PyTorch)
+### Source Code Package (Scikit-learn & PyTorch)
 Our implementation consists of two main model pipelines: classical machine learning models using Scikit-learn, and deep learning models using PyTorch. Each pipeline is encapsulated in dedicated notebooks/scripts and includes complete support for data loading, model training, validation, and performance evaluation.
 
-🔷 Scikit-learn Models
+Scikit-learn Models
 We implemented and evaluated the following classical models using Scikit-learn:
 
 Model	File	Description
@@ -196,17 +170,14 @@ Decision Tree	Decision_tree_Supervised.ipynb	Supervised DT with grid search for 
 Random Forest	Random_Forest.ipynb	Ensemble of trees, tuned via n_estimators, max_depth
 Gradient Boosting	XG_Boosting.ipynb	Boosting model using learning rate and early stopping
 Semi-Supervised DT	Semi_DT.ipynb	Pseudo-labeling applied iteratively on unlabeled samples
+
 Each notebook includes:
-
 Data preprocessing and splitting
-
 Model training with tuned hyperparameters
-
 Evaluation using Accuracy, Precision, Recall, and F1-score
-
 Confusion matrix visualization using seaborn
 
-🔷 PyTorch CNN
+PyTorch CNN
 Our deep learning approach is implemented using PyTorch and includes the following files:
 
 File	Description
@@ -215,12 +186,9 @@ cnn1.ipynb	Early prototype of CNN used for experimentation
 best_model.pkl	Saved trained CNN model (PyTorch state_dict)
 evaluate.py	Loads best_model.pkl, runs prediction on validation set, prints classification report and confusion matrix
 predict_image.py	Optional script to run inference on a single image using the saved CNN
+
 CNN Architecture:
-
 2–3 Convolutional blocks (Conv2D -> ReLU -> MaxPool)
-
 Fully connected layers with dropout
-
 Trained using Adam optimizer and CrossEntropyLoss
-
 Tuned for different learning rates [0.01, 0.001, 0.0001] and epochs [10, 20]
